@@ -4,276 +4,351 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrea Martina Mosconi | Jewelry Designer</title>
-    <!-- Google Fonts per un tocco artistico ed editoriale -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
-        /* Palette Calda e Materica */
         :root {
-            --bg-color: #f5f0eb;       /* Bianco caldo/argilla tesa */
-            --text-main: #2e2620;      /* Marrone scuro profondo, quasi brunito */
-            --text-muted: #6e6156;     /* Grigio caldo/moka */
-            --accent-color: #c98a63;   /* Terracotta / Rame caldo */
-            --card-bg: #faf7f2;        /* Superficie chiara e morbida */
-            --border-color: #e3dad0;   /* Linee sottili materiche */
+            --bg: #f4efe9;
+            --card: #fbf8f4;
+            --text: #2d2722;
+            --muted: #74695f;
+            --accent: #bb7a56;
+            --border: #e5d9cd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            background: var(--bg);
+            color: var(--text);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            background-color: var(--bg-color);
             line-height: 1.7;
         }
 
-        /* Intestazione */
         header {
-            background-color: rgba(245, 240, 235, 0.9);
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 25px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(244, 239, 233, 0.88);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 22px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
-        header h1 {
+        .logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 600;
             letter-spacing: 1px;
-            margin: 0;
         }
 
         nav a {
-            margin-left: 25px;
             text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
+            color: var(--muted);
+            margin-left: 24px;
+            transition: 0.3s;
+            font-size: 0.95rem;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--accent);
         }
 
-        /* Sezione Intro / Filosofia */
         .hero {
-            max-width: 850px;
-            margin: 100px auto;
-            padding: 0 25px;
-            text-align: center;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 70px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 140px 28px 80px;
         }
 
-        .hero h2 {
+        .hero-text h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
+            font-size: 5rem;
+            line-height: 0.95;
             font-weight: 400;
-            font-style: italic;
-            line-height: 1.2;
-            margin-bottom: 35px;
-            color: var(--text-main);
+            margin-bottom: 28px;
         }
 
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
+        .hero-text p {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 620px;
         }
 
-        .highlight {
-            color: var(--accent-color);
+        .hero-text .highlight {
+            color: var(--accent);
             font-weight: 500;
         }
 
-        /* Sezione Portfolio Artistico */
-        .portfolio {
-            max-width: 1100px;
-            margin: 120px auto;
-            padding: 0 25px;
+        .hero-image {
+            position: relative;
         }
 
-        .portfolio h3 {
+        .hero-image img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .tag {
+            position: absolute;
+            bottom: -18px;
+            left: -18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--muted);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 28px;
+        }
+
+        .section-title {
             font-family: 'Cormorant Garamond', serif;
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 400;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
+            font-size: 3rem;
+            margin-bottom: 18px;
+            font-weight: 500;
         }
 
-        .grid {
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 4px; /* Angoli leggermente smussati ma decisi */
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(110, 97, 86, 0.08);
+            transform: translateY(-6px);
         }
 
-        /* Simulazione dello spazio per le foto dei gioielli */
-        .card .placeholder-img {
-            background-color: #ede6de;
-            height: 260px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
+        .card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            border-radius: 2px;
-            border: 1px dashed var(--border-color);
-        }
-
-        .card h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            margin: 15px 0 10px 0;
-            font-weight: 600;
+            font-size: 1.7rem;
+            margin-bottom: 16px;
         }
 
         .card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin: 0;
+            color: var(--muted);
         }
 
-        /* Footer e Contatti */
-        footer {
-            background-color: var(--card-bg);
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            padding: 60px 25px;
-            margin-top: 150px;
+        .project {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        footer p {
-            margin: 8px 0;
-            color: var(--text-muted);
+        .project img {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: white;
+            padding: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
         }
 
-        .email-link {
+        .project-text h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--text-main);
+            font-size: 2.4rem;
+            margin-bottom: 18px;
+        }
+
+        .project-text p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 70px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+        }
+
+        footer h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        footer p,
+        footer a {
+            color: var(--muted);
             text-decoration: none;
-            border-bottom: 1px solid var(--accent-color);
-            transition: color 0.3s, border-color 0.3s;
         }
 
-        .email-link:hover {
-            color: var(--accent-color);
+        .mail {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
         }
 
-        .social-links {
-            margin-top: 30px;
-        }
+        @media(max-width: 900px) {
+            .hero,
+            .project {
+                grid-template-columns: 1fr;
+            }
 
-        .social-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
 
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .credits {
-            font-size: 0.8rem;
-            margin-top: 40px;
-            opacity: 0.7;
+            nav {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigazione -->
-    <header>
-        <h1>Andrea Martina Mosconi</h1>
+<header>
+    <div class="nav">
+        <div class="logo">Andrea Martina Mosconi</div>
+
         <nav>
-            <a href="#visione">Visione</a>
-            <a href="#collezioni">Collezioni</a>
-            <a href="#contatti">Contatti</a>
+            <a href="#about">About</a>
+            <a href="#project">Progetto</a>
+            <a href="#contact">Contatti</a>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <main>
-        <!-- Visione Artistica -->
-        <section id="visione" class="hero">
-            <h2>« Il gioiello è una scultura intima, un frammento di materia che prende forma sul corpo. »</h2>
+<section class="hero">
+    <div class="hero-text">
+        <h1>Jewelry & Contemporary Design</h1>
+
+        <p>
+            Sono un’aspirante designer con una forte passione per il mondo del gioiello,
+            della ricerca estetica e della progettazione contemporanea.
+            Frequento il <span class="highlight">terzo anno del corso di Design presso LABA Brescia</span>,
+            dove sto sviluppando il mio linguaggio creativo attraverso materiali,
+            forme e sperimentazione visiva.
+        </p>
+    </div>
+
+    <div class="hero-image">
+        <img src="sketchprodotto.png" alt="Sketch progetto gioiello">
+        <div class="tag">Sketch di progetto · Jewelry Concept</div>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">La mia visione</h2>
+    <p class="section-subtitle">
+        Mi interessa creare oggetti che uniscano sensibilità artistica,
+        ricerca materica e identità personale.
+    </p>
+
+    <div class="about-grid">
+        <div class="card">
+            <h3>Jewelry Design</h3>
             <p>
-                Sono un'**aspirante jewelry designer** attualmente iscritta al terzo anno del corso di Design presso la 
-                <span class="highlight">LABA (Libera Accademia di Belle Arti) di Brescia</span>. 
-                La mia ricerca artistica si concentra sull'equilibrio tra la forza primordiale della materia e la delicatezza del dettaglio. Guidata dalla passione per l'universo orafo, sperimento geometrie, texture e imperfezioni per creare pezzi capaci di raccontare storie profonde e senza tempo.
+                Studio il gioiello come elemento narrativo e scultoreo,
+                capace di creare connessioni emotive attraverso dettagli,
+                texture e proporzioni.
             </p>
-        </section>
-
-        <!-- Collezioni / Progetti -->
-        <section id="collezioni" class="portfolio">
-            <h3>Progetti e Ricerca Materica</h3>
-            <div class="grid">
-                
-                <!-- Card Progetto 1 -->
-                <div class="card">
-                    <div class="placeholder-img">[ Studio sulla Forma ]</div>
-                    <h4>Progetto Tesi / LABA</h4>
-                    <p>Sperimentazioni concettuali e sviluppo di una collezione di gioielli contemporanei per il progetto di fine triennio.</p>
-                </div>
-
-                <!-- Card Progetto 2 -->
-                <div class="card">
-                    <div class="placeholder-img">[ Scultura e Metallo ]</div>
-                    <h4>Modellazione & Prototipazione</h4>
-                    <p>Dal disegno a mano libera al rendering 3D, esplorando l'interazione tra luce e superfici metalliche irregolari.</p>
-                </div>
-
-                <!-- Card Progetto 3 -->
-                <div class="card">
-                    <div class="placeholder-img">[ Texture Organiche ]</div>
-                    <h4>Laboratorio Orafo</h4>
-                    <p>Studio sull'impronta dei materiali: fusioni, patine e texture ispirate agli elementi naturali e all'archeologia industriale.</p>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Contatti -->
-    <footer id="contatti">
-        <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px;">Entriamo in contatto</p>
-        <p><a href="mailto:mosconimartina@icloud.com" class="email-link">mosconimartina@icloud.com</a></p>
-        
-        <div class="social-links">
-            <a href="#" target="_blank">Instagram</a>
-            <a href="#" target="_blank">LinkedIn</a>
-            <a href="#" target="_blank">Behance</a>
         </div>
-        
-        <p class="credits">&copy; 2026 Andrea Martina Mosconi. All rights reserved.</p>
-    </footer>
+
+        <div class="card">
+            <h3>Ricerca estetica</h3>
+            <p>
+                Amo sperimentare geometrie, materiali e forme organiche,
+                lasciandomi ispirare dall’arte contemporanea,
+                dall’architettura e dalla moda.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Università & crescita</h3>
+            <p>
+                Il percorso in LABA mi sta permettendo di sviluppare competenze
+                progettuali e una maggiore consapevolezza nel design contemporaneo.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="project">
+    <div class="project">
+        <img src="sketchprodotto.png" alt="Sketch prodotto gioiello">
+
+        <div class="project-text">
+            <h3>Sketch di progetto</h3>
+
+            <p>
+                Questo sketch rappresenta una parte del mio processo creativo:
+                un momento di ricerca in cui il disegno diventa strumento
+                per esplorare equilibrio, struttura e identità formale.
+            </p>
+
+            <p>
+                Attraverso il tratto e la composizione cerco di trasformare
+                intuizioni e riferimenti estetici in oggetti concreti,
+                mantenendo sempre una forte attenzione alla materia e al dettaglio.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <h4>Contatti</h4>
+
+    <p>Aperta a collaborazioni, progetti e nuove connessioni creative.</p>
+
+    <a class="mail" href="mailto:mosconimartina@icloud.com">
+        mosconimartina@icloud.com
+    </a>
+
+    <p style="margin-top:30px; font-size:0.9rem;">
+        © 2026 Andrea Martina Mosconi
+    </p>
+</footer>
 
 </body>
 </html>
